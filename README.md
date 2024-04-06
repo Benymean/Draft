@@ -1,10 +1,5 @@
 # Network Subnetting and Infrastructure Analysis Report
 
-
-
-
-
-
 ## Table of Contents
 
 1. **Executive Summary**
@@ -35,12 +30,13 @@
    - **Devices and Collision Domains**
 5. **References**
 
-<div style="page-break-after: always;"></div>
-
+\pagebreak
 
 ## 1. Executive Summary
 
 This report delivers an exhaustive analysis of critical network infrastructure components spanning several key areas. From examining the subtleties of traffic traversal between offices to dissecting the nuances of subnetting for optimal network segmentation, the report synthesizes a comprehensive understanding of our network's current and future state. We also delve into the specifics of Data-Link layer functionality, assessing the impact of switch types on network performance and management.
+
+\pagebreak
 
 ## 2. Subnetting Analysis
 This section of the report analyzes the current network structure and proposes a subnetting scheme that not only meets the immediate needs of each office and center but also accommodates the growth of our network infrastructure with additional subnets for new office locations. Here is a methodical approach to calculating the necessary bits for subnetting, defining the new subnet masks, and determining the host capacities for each subnet.
@@ -66,7 +62,6 @@ Based on the physical and logical layout depicted in the network topology, the f
 - **Parramatta CBD Office**: Requires one subnet. This allocation allows for tailored network configurations that meet the operational requirements of the Parramatta CBD office
 - **Ultimo Data Center and Call Center**: Requires two subnets. The two switches connected to one router logically indicate that the Data Center and Call Center operate on separate subnets.
 - **WAN 1 and WAN 2**: Requires eight subnets. This allocation is crucial for managing wide-area network traffic, ensuring robust connectivity and security across disparate network segments.
-
 
 A total of 12 subnets are required to optimize network efficiency, security, and manageability across different operational areas and WAN connections.
 
@@ -138,7 +133,7 @@ This result shows that each subnet can accommodate up to 14 hosts, taking into a
 | 11         | 192.168.221.160   | 192.168.221.175     | 192.168.221.161 - 192.168.221.174 | 14        | 255.255.255.240   |
 | 12         | 192.168.221.176   | 192.168.221.191     | 192.168.221.177 - 192.168.221.190 | 14        | 255.255.255.240   |
 
-*This table outlines the division of the 192.168.221.0/24 network into 12 subnets using a Fixed Length Subnet Mask (FLSM) strategy.* **(Table formating minius the content was coded in Markdown by OpenAI's ChatGPT)**
+*This table outlines the division of the 192.168.221.0/24 network into 12 subnets using a Fixed Length Subnet Mask (FLSM) strategy.*
 
 ### 2.5 Expansion of New Offices
 
@@ -151,6 +146,8 @@ The subnet allocations for the new offices will be:
 - **Dubbo**: Assigned the subnet 192.168.221.224/28, with a usable host range of 192.168.221.225 to 192.168.221.238.
 
 With these additions, the updated FLSM scheme will utilizes 15 of the possible 16 subnets, effectively leaving one subnet in reserve for future network expansion or additional requirements.
+
+\pagebreak
 
 ## 3. Encapsulation, Traffic and Traversal Analysis
 
@@ -203,6 +200,8 @@ Routing protocols are the rules or algorithms that dictate how routers communica
 
 In absence of specific details, the general assumption would default to the path with fewer hops, indicating **WAN1** as the likely path taken.
 
+\pagebreak
+
 ## 4. Data-Link Layer Analysis
 Understanding the Data-Link layer's dynamics is essential for optimizing our network's performance and reliability. This section evaluates the role of switch types within our infrastructure, their impact on IP addressing, and network segmentation. It also explores the implications of mixed-manufacturer environments and the structuring of broadcast and collision domains.
 
@@ -237,6 +236,7 @@ There are several practical reasons why Switch12 may have a different uplink int
 In summary, the decision to use an uplink interface from a different company involves balancing various factors, including performance, cost, vendor relationships, network evolution, and the specific needs of the network architecture.
 
 ### E) Devices and Broadcast Domains
+
 This table only includes the broadcast domains for local area networks and does not include the WAN links since they are typically not considered broadcast domains due to their point-to-point nature [11]. Each router's local interface that connects to the local network can also be seen as part of the broadcast domain it serves.
 
 | Broadcast Domain    | Devices Included                                                                                      |
@@ -246,8 +246,8 @@ This table only includes the broadcast domains for local area networks and does 
 | Ultimo Call Center  | Call1, Call2, ..., Call10, Call Center Switch, Router8 interface (for Call Center)                    |
 | Ultimo Data Center  | Server10, Server11, ..., Server13, Data Center Switch, Router8 interface (for Data Center)           |
 
-**(Table formating minius the content was coded in Markdown by OpenAI's ChatGPT)**
 ### F) Devices and Collision Domains
+
 A collision domain is a network segment where data packets can "collide" with one another when being sent over a network medium. A hub shares the same collision domain across all of its ports. This means that all devices connected to a hub are in the same collision domain. However, switches and routers do not propagate collisions; each port on a switch or router is typically its own collision domain [12].
 
 | Collision Domain                      | Devices in Collision Domain                                      |
@@ -273,13 +273,9 @@ A collision domain is a network segment where data packets can "collide" with on
 | WAN 2 - Router4 to Router1            | Router4 Interface, Router1 Interface                             |
 | WAN 3 - Router3 to Router5            | Router3 Interface, Router5 Interface                             |
 | WAN 4 - Router5 to Router7            | Router5 Interface, Router7 Interface                             |
-| WAN 5 - Router3 to Router1            | Router3 Interface, Router1 Interface                             |'
+| WAN 5 - Router3 to Router1            | Router3 Interface, Router1 Interface                             |
 
-**(Table formating minius the content was coded in Markdown by OpenAI's ChatGPT)**
-
-
-<div style="page-break-after: always;"></div>
-
+\pagebreak
 
 ## 5. References
 
@@ -301,9 +297,10 @@ A collision domain is a network segment where data packets can "collide" with on
 
 [9] Acre security, “Uplink Ports: their importance, variations, and significance,” *Acresecurity.com,* 15-Nov-2023. . [Online]. Available: https://acresecurity.com/blog/uplink-ports-their-importance-variations-and-significance [Accessed: Apr. 2, 2024]. 
 ‌
+
 [10] S. Dahmen-Lhuissier, “Why standards,” *ETSI*. [Online]. Available: https://www.etsi.org/standards/why-standards. [Accessed: 03-Apr-2024].
 
 [11] Cisco networking academy connecting networks companion guide: Connecting to the WAN,” *Ciscopress.com.* [Online]. Available: https://www.ciscopress.com/articles/article.asp?p=2202411&seqNum=5. [Accessed: 06-Apr-2024].
 ‌
 
-[12] D. Rountree, Security for Microsoft Windows System Administrators. *Syngress Publishing*, 2011. [Ebook] Available: O'reilly 
+[12] D. Rountree, Security for Microsoft Windows System Administrators. *Syngress Publishing*, 2011. [Ebook] Available: O'reilly
